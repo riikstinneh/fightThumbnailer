@@ -30,7 +30,9 @@ function ImageEditor({
 		resizedContext.drawImage(canvas, 0, 0, 200, 200);
 
 		const border = document.getElementById("border-image");
-		resizedContext.drawImage(border, 0, 0, 200, 200);
+		if(border) {
+			resizedContext.drawImage(border, 0, 0, 200, 200);
+		}
 
 		let downloadLink = document.createElement("a");
 		downloadLink.setAttribute("download", "thumbnail.png");
