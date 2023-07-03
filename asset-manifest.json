@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.b2850cfc.css",
-    "main.js": "/static/js/main.2f909ea0.js",
-    "index.html": "/index.html",
-    "main.b2850cfc.css.map": "/static/css/main.b2850cfc.css.map",
-    "main.2f909ea0.js.map": "/static/js/main.2f909ea0.js.map"
+    "main.css": "/fightThumbnailer/static/css/main.b2850cfc.css",
+    "main.js": "/fightThumbnailer/static/js/main.2f909ea0.js",
+    "index.html": "/fightThumbnailer/index.html",
+    "main.b2850cfc.css.map": "/fightThumbnailer/static/css/main.b2850cfc.css.map",
+    "main.2f909ea0.js.map": "/fightThumbnailer/static/js/main.2f909ea0.js.map"
   },
   "entrypoints": [
     "static/css/main.b2850cfc.css",
