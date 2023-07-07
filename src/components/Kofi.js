@@ -1,6 +1,6 @@
 function Kofi() {
     return (
-        <div>
+        <div >
             <a
                 href="https://ko-fi.com/S6S41W3O9"
                 target="_blank"
@@ -14,7 +14,7 @@ function Kofi() {
                 />
             </a>
         </div>
-    )
+    );
 }
 
-export default Kofi
+export default Kofi;

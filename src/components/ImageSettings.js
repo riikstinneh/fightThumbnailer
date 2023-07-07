@@ -10,12 +10,12 @@ function ImageEditor({
     isBorder,
 }) {
     const handleScaleSlider = (e) => {
-        setScale(parseFloat(e.target.value))
-    }
+        setScale(parseFloat(e.target.value));
+    };
 
     const handleRotationSlider = (e) => {
-        setRotation(parseFloat(e.target.value))
-    }
+        setRotation(parseFloat(e.target.value));
+    };
 
     return (
         <>
@@ -106,7 +106,7 @@ function ImageEditor({
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default ImageEditor
+export default ImageEditor;
