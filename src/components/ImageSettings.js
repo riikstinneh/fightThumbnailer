@@ -6,6 +6,8 @@ function ImageEditor({
     imageRotation,
     onImageChange,
     handleBorderUpload,
+    handleBorderDelete,
+    isBorder,
 }) {
     const handleScaleSlider = (e) => {
         setScale(parseFloat(e.target.value))
@@ -29,7 +31,7 @@ function ImageEditor({
                     <label
                         htmlFor="image-upload"
                         id="image-button"
-                        className="cursor-pointer">
+                        className="cursor-pointer bg-sky-700">
                         Select Image
                     </label>
                     <input
@@ -39,19 +41,28 @@ function ImageEditor({
                         onChange={onImageChange}
                         className="hidden"
                     />
-                    <label
-                        htmlFor="custom-border-upload"
-                        id="image-button"
-                        className="mt-3 cursor-pointer">
-                        Select Border
-                        <input
-                            type="file"
-                            id="custom-border-upload"
-                            accept="image/*"
-                            className="hidden"
-                            onChange={handleBorderUpload}
-                        />
-                    </label>
+                    {isBorder ? (
+                        <button
+                            id="image-button"
+                            className="mt-3 cursor-pointer bg-red-900 hover:!bg-red-800"
+                            onClick={handleBorderDelete}>
+                            Delete Border
+                        </button>
+                    ) : (
+                        <label
+                            htmlFor="custom-border-upload"
+                            id="image-button"
+                            className="mt-3 cursor-pointer bg-sky-700">
+                            Select Border
+                            <input
+                                type="file"
+                                id="custom-border-upload"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={handleBorderUpload}
+                            />
+                        </label>
+                    )}
 
                     <div className="my-5 max-w-[70%] self-center">
                         <label htmlFor="image-scale" id="label-range">
@@ -86,7 +97,10 @@ function ImageEditor({
                 </div>
 
                 <div className="justify-self-center">
-                    <button id="image-button" onClick={handleDownload}>
+                    <button
+                        id="image-button"
+                        className="bg-sky-700"
+                        onClick={handleDownload}>
                         Save Image
                     </button>
                 </div>

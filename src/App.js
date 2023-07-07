@@ -1,36 +1,46 @@
-import ImageEditor from "./components/ImageEditor"
-import { useState } from "react"
-import Footer from "./components/Footer"
+import ImageEditor from "./components/ImageEditor";
+import { useState } from "react";
+import Footer from "./components/Footer";
+import PlaceholderImage from "./assets/placeholder.jpg";
 
 function App() {
-    const [image, setImage] = useState(null)
+    const [image, setImage] = useState(PlaceholderImage);
+
     const [selectedBorder, setSelectedBorder] = useState(() => {
         // Load saved border images from local storage
-        const savedBorders = localStorage.getItem("customBorders")
-        const initialBorder = JSON.parse(savedBorders)
-        return initialBorder || null
-    })
+        const savedBorders = localStorage.getItem("customBorders");
+        const initialBorder = JSON.parse(savedBorders);
+        return initialBorder || null;
+    });
 
     const onImageChange = (e) => {
-        setImage(URL.createObjectURL(e.target.files[0]))
-    }
+        setImage(URL.createObjectURL(e.target.files[0]));
+    };
 
     const handleBorderUpload = (e) => {
-        const selectedFile = e.target.files[0]
-        const reader = new FileReader()
+        const selectedFile = e.target.files[0];
+        const reader = new FileReader();
 
         reader.onload = (function (f) {
             return function (e) {
-                const newBorder = { imageUrl: e.target.result }
-                setSelectedBorder(newBorder)
+                const newBorder = { imageUrl: e.target.result };
+                setSelectedBorder(newBorder);
 
-                localStorage.clear()
-                localStorage.setItem("customBorders", JSON.stringify(newBorder))
-            }
-        })(selectedFile)
+                localStorage.clear();
+                localStorage.setItem(
+                    "customBorders",
+                    JSON.stringify(newBorder)
+                );
+            };
+        })(selectedFile);
 
-        reader.readAsDataURL(selectedFile)
-    }
+        reader.readAsDataURL(selectedFile);
+    };
+
+    const handleBorderDelete = () => {
+        localStorage.clear();
+        setSelectedBorder(null);
+    };
 
     return (
         //max-w-7xl
@@ -42,6 +52,7 @@ function App() {
                         selectedBorder={selectedBorder}
                         onImageChange={onImageChange}
                         handleBorderUpload={handleBorderUpload}
+                        handleBorderDelete={handleBorderDelete}
                     />
                 </div>
             </div>
@@ -49,7 +60,7 @@ function App() {
                 <Footer />
             </div>
         </div>
-    )
+    );
 }
 
-export default App
+export default App;

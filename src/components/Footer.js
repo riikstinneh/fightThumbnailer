@@ -4,56 +4,56 @@ import { TiBusinessCard } from "react-icons/ti"
 function Footer() {
     return (
         <footer>
-            <div class="mx-auto max-w-screen-xl space-y-8 px-4 py-6 sm:px-6 lg:space-y-16 lg:px-8">
-                <div class="flex flex-col items-center">
-                    <div class="my-2 text-blue-600">@Venfaaniik</div>
+            <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-6 sm:px-6 lg:space-y-16 lg:px-8">
+                <div className="flex flex-col items-center">
+                    <div className="my-2 text-blue-600">@Venfaaniik</div>
 
-                    <ul class="m-3 flex justify-start gap-3 text-lg sm:mt-0">
+                    <ul className="m-3 flex justify-start gap-3 text-lg sm:mt-0">
                         <li>
                             <a
-                                href="/"
+                                href="https://www.tumblr.com/venfaaniik"
                                 rel="noreferrer"
                                 target="_blank"
-                                class="text-gray-700 transition hover:opacity-75">
-                                <span class="sr-only">Tumblr</span>
+                                className="text-gray-700 transition hover:text-blue-500">
+                                <span className="sr-only">Tumblr</span>
                                 <FaTumblr />
                             </a>
                         </li>
 
                         <li>
                             <a
-                                href="/"
+                                href="https://discord.gg/nARAtAKahs"
                                 rel="noreferrer"
                                 target="_blank"
-                                class="text-gray-700 transition hover:opacity-75">
-                                <span class="sr-only">Discord</span>
+                                className="text-gray-700 transition hover:text-blue-500">
+                                <span className="sr-only">Discord</span>
                                 <FaDiscord />
                             </a>
                         </li>
 
                         <li>
                             <a
-                                href="/"
+                                href="https://github.com/venfaaniik"
                                 rel="noreferrer"
                                 target="_blank"
-                                class="text-gray-700 transition hover:opacity-75">
-                                <span class="sr-only">GitHub</span>
+                                className="text-gray-700 transition hover:text-blue-500">
+                                <span className="sr-only">GitHub</span>
                                 <FaGithub />
                             </a>
                         </li>
 
                         <li>
                             <a
-                                href="/"
+                                href="https://venfaaniik.carrd.co/"
                                 rel="noreferrer"
                                 target="_blank"
-                                class="text-gray-700 transition hover:opacity-75">
-                                <span class="sr-only">Carrd</span>
+                                className="text-gray-700 transition hover:text-blue-500">
+                                <span className="sr-only">Carrd</span>
                                 <TiBusinessCard />
                             </a>
                         </li>
                     </ul>
-                    <p class="text-center text-xs text-gray-500">
+                    <p className="text-center text-xs text-gray-500">
                         &copy; 2023. This website only saves data to your local
                         browser storage. <br />
                         Released under MIT license.

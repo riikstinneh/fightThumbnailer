@@ -26,10 +26,30 @@
         font-size: 20px;
     }
 
-    .border-button {
+    /* .border-button {
         display: inline-block;
         padding: 6px 12px;
         cursor: pointer;
+    } */
+
+    /* CSS */
+    #image-button {
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 400;
+        padding: 10px 25px;
+        text-align: center;
+        transform: translateY(0);
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    #image-button:hover {
+        background-color: rgb(2 132 199);
     }
 
     input[type="range"] {
@@ -56,27 +76,6 @@
         height: 25px;
         background-color: rgb(59 130 246);
         cursor: pointer;
-    }
-
-    /* CSS */
-    #image-button {
-        background-color: rgb(59 130 246);
-        border-radius: 30px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
-        box-sizing: border-box;
-        color: #fff;
-        cursor: pointer;
-        font-size: 20px;
-        font-weight: 400;
-        padding: 10px 25px;
-        text-align: center;
-        transform: translateY(0);
-        user-select: none;
-        -webkit-user-select: none;
-    }
-
-    #image-button:hover {
-        background-color: rgb(46, 112, 219);
     }
 
     @media (min-width: 768px) {

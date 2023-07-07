@@ -7,6 +7,7 @@ function ImageEditor({
     selectedBorder,
     onImageChange,
     handleBorderUpload,
+    handleBorderDelete,
 }) {
     const editor = useRef(null)
     const [imageScale, setImageScale] = useState(1)
@@ -55,6 +56,8 @@ function ImageEditor({
                     imageRotation={imageRotation}
                     onImageChange={onImageChange}
                     handleBorderUpload={handleBorderUpload}
+                    handleBorderDelete={handleBorderDelete}
+                    isBorder={selectedBorder}
                 />
             </div>
             <div className="m-3 basis-1 md:basis-1/2">
