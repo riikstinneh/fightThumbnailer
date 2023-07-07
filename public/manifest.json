@@ -1,6 +1,6 @@
 {
   "short_name": "Thumbnailer",
-  "name": "Venfaaniik's Artfight Thumbnailer",
+  "name": "Venfaaniik's Thumbnail generator for Artfight",
   "icons": [
     {
       "src": "favicon.ico",
