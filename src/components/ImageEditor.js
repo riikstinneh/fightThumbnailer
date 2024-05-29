@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import AvatarEditor from "react-avatar-editor";
 import ImageSettings from "./ImageSettings";
 
@@ -13,6 +13,28 @@ function ImageEditor({
   const editor = useRef(null);
   const [imageScale, setImageScale] = useState(1);
   const [imageRotation, setImageRotation] = useState(0);
+  const [dimensions, setDimensions] = useState(0);
+  const maxWidth = 500;
+
+  // Calculate the size for the avatar editor
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      const maxScaledWidth =
+        windowWidth * 0.8 > maxWidth ? maxWidth : windowWidth * 0.8;
+
+      setDimensions(maxScaledWidth);
+    };
+
+    // Call this once
+    handleResize();
+    // And add a listener
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
@@ -47,8 +69,8 @@ function ImageEditor({
   };
 
   return (
-    <div className="flex flex-col content-center md:w-full md:flex-row">
-      <div className="basis-1 md:basis-1/2">
+    <div className="flex w-full flex-col content-center md:flex-row">
+      <div className="basis-1 p-2 md:basis-1/2 md:p-4">
         <ImageSettings
           setScale={setImageScale}
           setRotation={setImageRotation}
@@ -61,25 +83,29 @@ function ImageEditor({
           isBorder={selectedBorder}
         />
       </div>
-      <div className="m-3 basis-1 md:basis-1/2">
-        <div className="image-with-border relative">
+      <div className="m-3 flex basis-1 items-center justify-center md:basis-1/2">
+        <div className="image-with-border relative w-full max-w-full">
           <AvatarEditor
             id="main-canvas"
             ref={editor}
             image={image}
-            width={500}
-            height={500}
-            border={0}
-            color={[130, 130, 130, 0.8]} // RGBA
-            scale={imageScale}
-            rotate={imageRotation}
+            width={dimensions}
+            height={dimensions}
+            border={2}
+            color={[0, 0, 0, 1]}
+            scale={isImageSet ? imageScale : 1}
+            rotate={isImageSet ? imageRotation : 0}
             disableBoundaryChecks={isImageSet}
             onWheel={onMouseWheel}
+            className="w-full"
           />
           {selectedBorder && (
             <div
               className="pointer-events-none absolute left-0 top-0 h-full w-full"
-              style={{ maxWidth: "600px", maxHeight: "600px" }}>
+              style={{
+                maxWidth: dimensions + 100,
+                maxHeight: dimensions + 100,
+              }}>
               <img
                 id="border-image"
                 src={selectedBorder.imageUrl}

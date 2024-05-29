@@ -95,7 +95,7 @@ function ImageEditor({
         <div className="justify-self-center">
           <button
             id="image-button"
-            className="bg-sky-700"
+            className="bg-rose-500"
             onClick={handleDownload}>
             Save Image
           </button>
