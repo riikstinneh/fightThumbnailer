@@ -42,23 +42,22 @@ function App() {
   };
 
   return (
-    //max-w-7xl
-    <div className="grid h-screen place-items-center">
-      <div className="card mx-auto flex bg-stone-800">
-        <div className="flex flex-row">
-          <ImageEditor
-            image={image}
-            selectedBorder={selectedBorder}
-            onImageChange={onImageChange}
-            handleBorderUpload={handleBorderUpload}
-            handleBorderDelete={handleBorderDelete}
-            isImageSet={isImageSet}
-          />
+    <div className="flex min-h-screen flex-col bg-neutral-950 lg:pt-6">
+      <div className="grid flex-grow place-items-center">
+        <div className="card mx-auto flex w-full max-w-full flex-col bg-stone-800 md:max-w-3xl lg:max-w-4xl lg:p-8">
+          <div className="flex flex-col md:flex-row">
+            <ImageEditor
+              image={image}
+              selectedBorder={selectedBorder}
+              onImageChange={onImageChange}
+              handleBorderUpload={handleBorderUpload}
+              handleBorderDelete={handleBorderDelete}
+              isImageSet={isImageSet}
+            />
+          </div>
         </div>
       </div>
-      <div className="fixed inset-x-0 bottom-0">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
