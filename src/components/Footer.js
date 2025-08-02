@@ -40,11 +40,11 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://venfaaniik.carrd.co/"
+                href="https://venfaaniik.com/"
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-400 transition hover:text-blue-500">
-                <span className="sr-only">Carrd</span>
+                <span className="sr-only">Homepage</span>
                 <TiBusinessCard />
               </a>
             </li>
@@ -55,7 +55,7 @@ const Footer = () => {
           <p className="text-center text-xs text-gray-500">
             Venfaaniik &copy; 2024. This website only saves data to your local
             browser storage. <br />
-            Released under MIT license. Report bugs on the Github repository!
+            Released under MIT license. Report bugs on the Github repository.
           </p>
         </div>
       </div>

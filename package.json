@@ -1,6 +1,6 @@
 {
-  "name": "venfaaniik-artfight-thumbnailer",
-  "homepage": "https://venfaaniik.com",
+  "name": "artfight-thumbnailer",
+  "homepage": "https://riikstinneh.github.io/fightThumbnailer/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

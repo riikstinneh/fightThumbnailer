@@ -14,6 +14,7 @@ function ImageEditor({
   const [imageScale, setImageScale] = useState(1);
   const [imageRotation, setImageRotation] = useState(0);
   const [dimensions, setDimensions] = useState(0);
+  const [exportSize, setExportSize] = useState(200);
   const maxWidth = 500;
 
   // Calculate the size for the avatar editor
@@ -38,6 +39,11 @@ function ImageEditor({
 
   const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
+  const handleChangeExportSize = (size) => {
+    console.log(size);
+    setExportSize(size);
+  };
+
   const onMouseWheel = (e) => {
     const { deltaY } = e;
     setImageScale(clamp(imageScale + deltaY * 0.003 * -1, 1, 10));
@@ -47,15 +53,15 @@ function ImageEditor({
     let resizedCanvas = document.createElement("canvas");
     let resizedContext = resizedCanvas.getContext("2d");
 
-    resizedCanvas.height = "200";
-    resizedCanvas.width = "200";
+    resizedCanvas.height = exportSize.toString();
+    resizedCanvas.width = exportSize.toString();
 
     const canvas = document.getElementById("main-canvas");
-    resizedContext.drawImage(canvas, 0, 0, 200, 200);
+    resizedContext.drawImage(canvas, 0, 0, exportSize, exportSize);
 
     const border = document.getElementById("border-image");
     if (border) {
-      resizedContext.drawImage(border, 0, 0, 200, 200);
+      resizedContext.drawImage(border, 0, 0, exportSize, exportSize);
     }
 
     let downloadLink = document.createElement("a");
@@ -74,7 +80,9 @@ function ImageEditor({
         <ImageSettings
           setScale={setImageScale}
           setRotation={setImageRotation}
+          handleChangeExportSize={handleChangeExportSize}
           handleDownload={handleDownload}
+          exportSize={exportSize}
           imageScale={imageScale}
           imageRotation={imageRotation}
           onImageChange={onImageChange}

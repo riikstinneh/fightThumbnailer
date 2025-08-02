@@ -1,7 +1,9 @@
 function ImageEditor({
   setScale,
   setRotation,
+  handleChangeExportSize,
   handleDownload,
+  exportSize,
   imageScale,
   imageRotation,
   onImageChange,
@@ -21,7 +23,8 @@ function ImageEditor({
     <>
       <div className="mt-3 grid h-full grid-cols-1 gap-4 md:max-w-xs">
         <p className="px-4 text-sm text-gray-300">
-          A simple tool to save time with Artfight thumbnails.
+          A simple tool to save time with Artfight thumbnails. (Or with any
+          thumbnails, really.)
           <br />
           Exports as 200x200px, with an option to add a border too. The work is
           done on your browser; no images get uploaded anywhere!
@@ -63,7 +66,7 @@ function ImageEditor({
             </label>
           )}
 
-          <div className="my-5 max-w-[70%] self-center">
+          <div className="mt-3 max-w-[70%] self-center">
             <label htmlFor="image-scale" id="label-range">
               Zoom
             </label>
@@ -90,6 +93,21 @@ function ImageEditor({
               step={0.1}
             />
           </div>
+        </div>
+
+        <div className="justify-self-center">
+          <label htmlFor="export-size" id="label-number" className="pr-3">
+            Export size (px)
+          </label>
+          <input
+            id="export-size"
+            type="number"
+            value={exportSize}
+            onChange={(e) => handleChangeExportSize(e.target.value)}
+            min={10}
+            max={2000}
+            className="text-black"
+          />
         </div>
 
         <div className="justify-self-center">
